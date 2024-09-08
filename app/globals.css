@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sky-300: #00acb4;
+  --pink-300: #ffffff;
+  --green-300: #f15a22;
+  --yellow-300: #0d1117;
+  --red-300: #2d69ff;
+  --purple-300: #ec1c24;
+  --blue-300: #fb871c;
+  --indigo-300: #f8c409;
+  --violet-300: #fd4b29;
+}
+
+
