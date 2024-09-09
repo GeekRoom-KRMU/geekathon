@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Boxes } from "@/components/ui/background-boxes";
-import { cn } from "@/lib/utils";
 import Navbar from "@/components/navbar";
 
 export default function Home() {
