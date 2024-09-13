@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
             </div>
           </div>
           <div>
-            <a href="https://geekroom.krmu.ac.in/geekathon" target="_blank" rel="noopener noreferrer" className="inline-block">
+            <a href="https://unstop.com/p/geekathon-kr-mangalam-universtiy-1152218" target="_blank" rel="noopener noreferrer" className="inline-block">
               <button className="px-4 py-2 border border-white bg-transparent text-white relative group transition duration-200">
                 <div className="absolute -bottom-1 -right-1 bg-blue-500 h-full w-full -z-10 group-hover:bottom-0 group-hover:right-0 transition-all duration-200 border border-white" />
                 <span className="relative font-orbitron">Register Now</span>
@@ -55,18 +55,18 @@ const Home: React.FC = () => {
       <main className="relative z-10 flex-grow flex flex-col items-center justify-start pt-20 pb-10 px-4">
         <div className="text-center space-y-6 max-w-4xl mx-auto">
           <TypewriterEffectSmooth words={words} />
-          <h1 className="text-center text-white font-orbitron text-xl lg:text-2xl font-bold dark:text-white">
-            Join the Ultimate Hackathon Experience!
-          </h1>
-          <p className="text-center text-neutral-300 max-w-lg mx-auto">
-            Unleash your creativity and innovation at Geekathon 2024, hosted by the
-            Geek Room Student Chapter of KRMU.
-          </p>
           <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 mt-8">
             <Image src="/KRMU_logo.png" alt="KRMU Logo" width={100} height={100} />
             <Image src="/geekroom_logo.png" alt="Geek Room Logo" width={100} height={100} />
             <Image src="/unstop-non.png" alt="Unstop Logo" width={100} height={100} />
           </div>
+          <h1 className="text-center text-white font-orbitron text-xl lg:text-2xl font-bold dark:text-white">
+            Join the Ultimate Hackathon Experience!
+          </h1>
+          <p className="text-center text-neutral-300 font-orbitron max-w-lg mx-auto">
+            Unleash your creativity and innovation at Geekathon 2024, hosted by the
+            Geek Room Student Chapter of KRMU.
+          </p>
         </div>
         <div id="about" className="mt-20 w-full max-w-4xl">
           <About />
@@ -74,10 +74,10 @@ const Home: React.FC = () => {
         <div id="timeline" className="mt-20 w-full max-w-4xl">
           <TimelineDemo />
         </div>
+        <Footer />
       </main>
-      <Footer />
     </div>
   );
-};
+}
 
 export default Home;
