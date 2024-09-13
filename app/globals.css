@@ -14,4 +14,7 @@
   --violet-300: #fd4b29;
 }
 
+html {
+  scroll-behavior: smooth;
+}
 

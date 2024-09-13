@@ -1,48 +1,83 @@
-"use client";
-
 import React from "react";
+import Image from "next/image";
 import { Boxes } from "@/components/ui/background-boxes";
-import Navbar from "@/components/navbar";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { About } from "@/components/about";
+import { Footer } from "@/components/footer";
+import { TimelineDemo } from "@/components/timeline";
+import Link from "next/link";
 
-export default function Home() {
+const Navbar: React.FC = () => {
   return (
-    <div className="h-screen w-full bg-slate-900 flex flex-col">
-      {/* Navbar at the top */}
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-slate-900 bg-opacity-80 backdrop-blur-sm">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center">
+            <Link href="/">
+              <Image src="/geekroom_logo.png" alt="GR-KRMU Logo" width={40} height={40} />
+            </Link>
+          </div>
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-4">
+              <Link href="#about" className="text-white hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium">About</Link>
+              <Link href="#timeline" className="text-white hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium">Timeline</Link>
+              <Link href="/community" className="text-white hover:bg-slate-700 px-3 py-2 rounded-md text-sm font-medium">Community</Link>
+            </div>
+          </div>
+          <div>
+            <a href="https://geekroom.krmu.ac.in/geekathon" target="_blank" rel="noopener noreferrer" className="inline-block">
+              <button className="px-4 py-2 border border-white bg-transparent text-white relative group transition duration-200">
+                <div className="absolute -bottom-1 -right-1 bg-blue-500 h-full w-full -z-10 group-hover:bottom-0 group-hover:right-0 transition-all duration-200 border border-white" />
+                <span className="relative font-orbitron">Register Now</span>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+const Home: React.FC = () => {
+  const words = [
+    {
+      text: "Geekathon'24",
+      className: "text-white font-orbitron font-bold text-[3rem] md:text-[4rem] lg:text-[5rem] dark:text-white",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen w-full bg-slate-900 flex flex-col">
       <Navbar />
-
-      {/* Main content area */}
-      <div className="relative flex-grow flex items-center justify-center overflow-hidden">
+      <div className="fixed inset-0 z-0">
         <Boxes />
-        <div className="relative z-10 text-center space-y-6">
-          {/* Large span for Geekathon'24 text */}
-          <span className="text-white font-orbitron font-bold text-[4rem] md:text-[6rem] lg:text-[7rem] dark:text-white">
-            Geekathon&apos;24
-          </span>
-
-          <h1 className="text-center text-white font-orbitron text-2xl lg:text-3xl font-bold dark:text-white">
+      </div>
+      <main className="relative z-10 flex-grow flex flex-col items-center justify-start pt-20 pb-10 px-4">
+        <div className="text-center space-y-6 max-w-4xl mx-auto">
+          <TypewriterEffectSmooth words={words} />
+          <h1 className="text-center text-white font-orbitron text-xl lg:text-2xl font-bold dark:text-white">
             Join the Ultimate Hackathon Experience!
           </h1>
-
-          <p className="text-center text-neutral-300 relative z-20 max-w-lg mx-auto">
+          <p className="text-center text-neutral-300 max-w-lg mx-auto">
             Unleash your creativity and innovation at Geekathon 2024, hosted by the
             Geek Room Student Chapter of KRMU.
           </p>
-
-          {/* Updated Register Now button */}
-          <a href="https://geekroom.krmu.ac.in/geekathon" className="inline-block mt-6">
-            <button className="px-8 py-2 border border-white bg-transparent text-black dark:border-white relative group transition duration-200">
-              {/* White outline with blue background hover */}
-              <div className="absolute -bottom-2 -right-2 bg-blue-500 h-full w-full -z-10 group-hover:bottom-0 group-hover:right-0 transition-all duration-200 border border-white" />
-              <span className="relative text-black dark:text-white font-orbitron">Register Now</span>
-            </button>
-          </a>
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 mt-8">
+            <Image src="/KRMU_logo.png" alt="KRMU Logo" width={100} height={100} />
+            <Image src="/geekroom_logo.png" alt="Geek Room Logo" width={100} height={100} />
+            <Image src="/unstop-non.png" alt="Unstop Logo" width={100} height={100} />
+          </div>
         </div>
-      </div>
-
-      {/* Footer */}
-      <footer className="text-center text-neutral-400 py-4 bg-slate-800">
-        © 2024 Geek Room Student Chapter, KRMU
-      </footer>
+        <div id="about" className="mt-20 w-full max-w-4xl">
+          <About />
+        </div>
+        <div id="timeline" className="mt-20 w-full max-w-4xl">
+          <TimelineDemo />
+        </div>
+      </main>
+      <Footer />
     </div>
   );
-}
+};
+
+export default Home;
